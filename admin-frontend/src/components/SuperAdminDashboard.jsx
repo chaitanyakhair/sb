@@ -53,7 +53,7 @@ function SuperAdminDashboard() {
   // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/users', newUser);
+    await axios.post('http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users', newUser);
     setNewUser({ name: '', phoneNumber: '', email: '', address: '', password: '', role: '' });
     fetchUsers();
     fetchAdmins();
@@ -61,19 +61,19 @@ function SuperAdminDashboard() {
 
   // Handle RM assign
   const handleAssign = async (agentId, relationshipManagerId) => {
-    await axios.put(`http://localhost:5000/api/users/${agentId}/assign`, { relationshipManagerId });
+    await axios.put(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users/${agentId}/assign`, { relationshipManagerId });
     fetchUsers();
   };
 
   // Balance update
   const handleBalanceUpdate = async (userId, balance) => {
-    await axios.put(`http://localhost:5000/api/users/${userId}/balance`, { balance });
+    await axios.put(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users/${userId}/balance`, { balance });
     fetchUsers();
   };
 
   // If ever role changes
   const handleRoleChange = async (userId, role) => {
-    await axios.put(`http://localhost:5000/api/users/${userId}/role`, { role });
+    await axios.put(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users/${userId}/role`, { role });
     fetchUsers();
   };
 
