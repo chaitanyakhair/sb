@@ -16,7 +16,7 @@ function AdminDashboard() {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`/api/users?search=${searchTerm}`, {
+      const response = await axios.get(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users?search=${searchTerm}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
