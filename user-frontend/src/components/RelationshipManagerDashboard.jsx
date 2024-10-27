@@ -29,7 +29,7 @@ const RelationshipManagerDashboard = () => {
         navigate('/login');
         return;
       }
-      const response = await axios.get(`/api/rm-data/${rmId}`, {
+      const response = await axios.get(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/rm-data/${rmId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
