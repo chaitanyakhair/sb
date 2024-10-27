@@ -20,7 +20,7 @@ function SuperAdminDashboard() {
   const fetchAdmins = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`/api/admins?search=${searchTerm}&role=${roleFilter}`, {
+      const response = await axios.get(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/admins?search=${searchTerm}&role=${roleFilter}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -34,7 +34,7 @@ function SuperAdminDashboard() {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`/api/users?search=${searchTerm}&role=${roleFilter}`, {
+      const response = await axios.get(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users?search=${searchTerm}&role=${roleFilter}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
