@@ -18,7 +18,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/admin/login', formData);
+      const response = await axios.post('http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/admin/login', formData);
       const { token, user } = response.data;
       localStorage.setItem('token', token);
       const { role, _id } = user;
