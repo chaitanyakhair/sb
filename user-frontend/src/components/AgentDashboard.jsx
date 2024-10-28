@@ -26,7 +26,7 @@ const AgentDashboard = () => {
         navigate('/login');
         return;
       }
-      const response = await axios.get(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/agent/${agentId}`, {
+      const response = await axios.get(`http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/agent/${agentId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
