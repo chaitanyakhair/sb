@@ -20,7 +20,7 @@ function SuperAdminDashboard() {
   const fetchAdmins = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/admins?search=${searchTerm}&role=${roleFilter}`, {
+      const response = await axios.get(`http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/admins?search=${searchTerm}&role=${roleFilter}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -34,7 +34,7 @@ function SuperAdminDashboard() {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users?search=${searchTerm}&role=${roleFilter}`, {
+      const response = await axios.get(`http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/users?search=${searchTerm}&role=${roleFilter}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -53,7 +53,7 @@ function SuperAdminDashboard() {
   // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users', newUser);
+    await axios.post('http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/users', newUser);
     setNewUser({ name: '', phoneNumber: '', email: '', address: '', password: '', role: '' });
     fetchUsers();
     fetchAdmins();
@@ -61,19 +61,19 @@ function SuperAdminDashboard() {
 
   // Handle RM assign
   const handleAssign = async (agentId, relationshipManagerId) => {
-    await axios.put(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users/${agentId}/assign`, { relationshipManagerId });
+    await axios.put(`http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/users/${agentId}/assign`, { relationshipManagerId });
     fetchUsers();
   };
 
   // Balance update
   const handleBalanceUpdate = async (userId, balance) => {
-    await axios.put(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users/${userId}/balance`, { balance });
+    await axios.put(`http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/users/${userId}/balance`, { balance });
     fetchUsers();
   };
 
   // If ever role changes
   const handleRoleChange = async (userId, role) => {
-    await axios.put(`http://ec2-3-108-63-154.ap-south-1.compute.amazonaws.com:5000/api/users/${userId}/role`, { role });
+    await axios.put(`http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/users/${userId}/role`, { role });
     fetchUsers();
   };
 
