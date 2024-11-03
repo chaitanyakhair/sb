@@ -16,7 +16,7 @@ function AdminDashboard() {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/users?search=${searchTerm}`, {
+      const response = await axios.get(`https://tt3iyqgys4tifb6dk3vpmg5gii0qjffr.lambda-url.ap-south-1.on.aws/api/users?search=${searchTerm}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -37,7 +37,7 @@ function AdminDashboard() {
   //handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/users', newUser);
+    await axios.post('https://tt3iyqgys4tifb6dk3vpmg5gii0qjffr.lambda-url.ap-south-1.on.aws/api/users', newUser);
     setNewUser({ name: '', phoneNumber: '', email: '', address: '', password: '', role: '' });
     fetchUsers();
   };
@@ -45,13 +45,13 @@ function AdminDashboard() {
 
   //assign RM to agent
   const handleAssign = async (agentId, relationshipManagerId) => {
-    await axios.put(`http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/users/${agentId}/assign`, { relationshipManagerId });
+    await axios.put(`https://tt3iyqgys4tifb6dk3vpmg5gii0qjffr.lambda-url.ap-south-1.on.aws/api/users/${agentId}/assign`, { relationshipManagerId });
     fetchUsers();
   };
 
   //update balance
   const handleBalanceUpdate = async (userId, balance) => {
-    await axios.put(`http://ec2-3-109-54-37.ap-south-1.compute.amazonaws.com:5000/api/users/${userId}/balance`, { balance });
+    await axios.put(`https://tt3iyqgys4tifb6dk3vpmg5gii0qjffr.lambda-url.ap-south-1.on.aws/api/users/${userId}/balance`, { balance });
     fetchUsers();
   };
 
